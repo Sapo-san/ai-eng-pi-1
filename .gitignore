@@ -209,5 +209,8 @@ __marimo__/
 pyvenv.cfg
 bin/
 include/
+lib64
 lib64/
 lib/
+share/
+logs/
