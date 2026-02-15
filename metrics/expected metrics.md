@@ -1,0 +1,1 @@
+Métricas por ejecución: timestamp, tokens_prompt, tokens_completion, total_tokens, latency_ms, estimated_cost_usd.

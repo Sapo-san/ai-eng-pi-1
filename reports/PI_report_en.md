@@ -1,0 +1,1 @@
+Entregar un reporte breve (1–2 páginas) que describa: arquitectura, técnica de prompting, métricas de ejemplo y trade-offs.
