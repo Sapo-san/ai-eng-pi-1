@@ -17,11 +17,11 @@ Nota: Completar variable `OPENAI_API_KEY` en `.env` y borrar comentarios.
 **Para instalar dependencias** detalladas en uv.lock
 
 ```bash
-# Activar entorno virtual
-source .venv/bin/activate
-
 # Instalar dependencias
 uv sync
+
+# Activar entorno virtual
+source .venv/bin/activate
 ```
 
 ---
