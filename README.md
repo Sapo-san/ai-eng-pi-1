@@ -58,3 +58,5 @@ El agente implementado utiliza el contenido del archivo `main_prompt.md` como `s
 Los logs se generan en texto plano en la carpeta `logs/` como un archivo con nombre de la forma `logs-{fecha-hoy}.txt`, loggean la información solicitada ademas de la que consideré relevante. Incluiré en repositorio los logs generados por las ejecuciones hechas para el reporte.
 
 Las metricas se generan dentro de `metrics/` como archivos `.csv`
+
+Dentro de las instrucciones del prompt incluí un manejo de seguridad mínimo al restringir el tipo de consultas sobre las que puede responder el modelo, no se si será suficiente para para contar con el bonus de seguridad/moderación pero al menos con la llamada de ejemplo final que se supone que debe gatillar el error, la medida minima logró evitar salidas inseguras.

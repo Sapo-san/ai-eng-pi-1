@@ -31,9 +31,9 @@ Respecto al formato de salida, para asegurar el formato JSON tambien implementé
 
 ## Métricas de ejemplo
 
-Se capturaron las métricas: tokens_prompt, tokens_completion, total_tokens, latency_ms, estimated_cost_usd
+Se capturaron las métricas en logs y en `metrics.csv`: tokens_prompt, tokens_completion, total_tokens, latency_ms, estimated_cost_usd
 
-Por cada combinación de `prompt+modelo` se hicieron las mismas seis llamadas con inputs distintos (ver `main.ipynb`). En todos los casos los tokens estimados con la librería `tiktoken` coinciden con enviados registrados por la API. Las metricas que "incluyen errores" estan contando las respuestas cortas (ejemplo: `{"error": "lo siento, no puedo ayudarte con eso"}`) que el prompt induce al modelo a dar.
+Por cada combinación de `prompt+modelo` se hicieron las mismas seis llamadas con inputs distintos (ver `main.ipynb`). En todos los casos los tokens estimados con la librería `tiktoken` coinciden con enviados registrados por la API. Las metricas que "incluyen errores" estan contando las respuestas cortas (ejemplo: `{"error": "lo siento, no puedo ayudarte con eso"}`) que el prompt induce al modelo a dar. Todos los modelos se evaluaron con creatividad `0.2` (excepto 5-mini, que no acepta parametro de temperatura.)
 
 ### Métricas recolectadas
 
@@ -71,7 +71,7 @@ A modo de resumen para cada versión del prompt:
 
 Adicionalmente, para el prompt v3, se probó con dos modelos mas para contrastar:
 
-- **main_prompt v3 | modelo: gpt-5o-mini**
+- **main_prompt v3 | modelo: gpt-5-mini**
   - latencia (ms) minima, promedio y máxima: 6231, 8538.33, 10245
   - tokens promedio por respuesta: 1117.83
   - costo promedio por llamada: 0,002554917 USD
@@ -89,4 +89,10 @@ Adicionalmente, para el prompt v3, se probó con dos modelos mas para contrastar
 
 ## Trade-offs
 
-...
+Respecto a la latencia, a partir de los datos anteriores podemos concluir que los trade-offs mas grandes provienen del cambio de modelo. Los modelos mas costosos (5-mini y o4) tienen significativamente mas latencia que o4-mini. No hay una tendencia clara al cambiar la cantidad de ejemplos para o4-mini.
+
+Respecto a la cantidad de tokens, los costos tambien suben significativamente al usar el modelo o4 en comparación a los otros dos que son mini, pero es esperable dado el pricing establecido por el proveedor.
+
+## Respecto a la seguridad
+
+Respecto a la seguridad, ningún modelo se desvió de las instrucciones con la ultima llamada. Los modelos 4o y 4o-mini levantaron el error con el formato establecido, a diferencia del modelo 5-mini que si bien no levantó la respuesta de error, su CoT fue correcto al sguerir rechazar el seguimiento de instrucciones.
