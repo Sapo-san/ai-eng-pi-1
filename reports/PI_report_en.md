@@ -1,1 +1,9 @@
-Entregar un reporte breve (1–2 páginas) que describa: arquitectura, técnica de prompting, métricas de ejemplo y trade-offs.
+# Reporte de Proyecto Individual M1
+
+## Arquitectura
+
+## Técnica de prompting
+
+## Metricas de ejemplo
+
+## Trade-offs

@@ -35,12 +35,12 @@ Enviar mediante un enlace público al repositorio en Git. Asegurarse de que el r
 
 | Entregable | Archivo/Formato | Contenido mínimo |
 | :---: | :---: | --- |
-| Aplicación o script ejecutable | src/run_query.py or app/endpoint.py (or notebook .ipynb) | src/run_query.py or app/endpoint.py (or notebook .ipynb) |
+| Aplicación o script ejecutable | src/run_query.py or app/endpoint.py (or notebook .ipynb) | Aceptar una pregunta del usuario; llamar a la API de OpenAI; devolver JSON válido; imprimir/guardar la salida. |
 | Plantilla(s) de prompt | prompts/main_prompt.txt (or .md) | Prompt basado en instrucciones; incluir algunos ejemplos few-shot; instrucciones de esquema JSON. |
 | Registro de métricas | metrics/metrics.csv or metrics/metrics.json | Métricas por ejecución: timestamp, tokens_prompt, tokens_completion, total_tokens, latency_ms, estimated_cost_usd. |
 | Informe breve | reports/PI_report_en.md (1–2 pages) | Informe breve: visión de arquitectura, técnica(s) de prompting usada(s) y por qué, resumen de métricas con resultados de muestra, desafíos y posibles mejoras. |
 | README | README.md | README: setup, variables de entorno, comandos de ejecución, cómo reproducir métricas, limitaciones conocidas. |
-| Tests | tests/test_core.py | tests/test_core.py |
+| Tests | tests/test_core.py | Al menos 1 test (p. ej., conteo de tokens o validación de esquema JSON) con instrucciones para ejecutarlo. |
 | Manejo de seguridad (bonus) | src/safety.py + docs in report | Seguridad (bonus): paso de moderación o fallback; ejemplo de prompt adversarial y resultado; registro (logging) de decisiones. |
 
 ## ✅Checklist de entrega

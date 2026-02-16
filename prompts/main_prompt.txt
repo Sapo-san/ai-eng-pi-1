@@ -1,5 +1,0 @@
-ROLE: Define quién es el agente (coach conversacional, analista, etc.)
-TASK: Qué debe lograr (diseñar recomendación, auditar respeto, etc.)
-OUTPUT FORMAT: Estructura JSON o Pydantic (con validación)
-EXAMPLES (opcional): Few-shot para mayor consistencia
-CONTEXT: Datos específicos del caso (perfil del usuario, etc.)

@@ -207,10 +207,10 @@ marimo/_lsp/
 __marimo__/
 
 pyvenv.cfg
+*.py[oc]
 bin/
 include/
 lib64
 lib64/
 lib/
 share/
-logs/
