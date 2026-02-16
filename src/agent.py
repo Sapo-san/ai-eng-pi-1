@@ -225,11 +225,18 @@ class Agent:
         while not valid_answer and retries < 3:
             timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
             t1 = perf_counter()
-            response = self.client.responses.create(
-                model=self.model,
-                input=messages,
-                temperature=self.temperature,
-            )
+            if self.model == 'gpt-5-mini':  # No usar parametro de temperatura
+                response = self.client.responses.create(
+                    model=self.model,
+                    input=messages,
+                    #temperature=self.temperature,
+                )
+            else:
+                response = self.client.responses.create(
+                    model=self.model,
+                    input=messages,
+                    temperature=self.temperature,
+                )
 
             t2 = perf_counter()
             response_time = (t2 - t1) * 1000

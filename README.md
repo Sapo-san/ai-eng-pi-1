@@ -2,6 +2,8 @@
 
 ## Setup
 
+El entorno de desarrollo donde se creó y desarrolló este repositorio es WSL (Ubuntu) dentro de Windows 11 con `uv` y Python 3.12 instalado.
+
 **Configurar variables de entorno:**
 
 ```bash
@@ -15,12 +17,18 @@ Nota: Completar variable `OPENAI_API_KEY` en `.env` y borrar comentarios.
 **Para instalar dependencias** detalladas en uv.lock
 
 ```bash
+# Activar entorno virtual
+source .venv/bin/activate
+
+# Instalar dependencias
 uv sync
 ```
 
 ---
 
-**Correr tests**:
+**Ejecutar tests**: 
+
+Correr `tests/test_core.py` con el comando:
 
 ```bash
 uv run pytest
@@ -30,7 +38,7 @@ uv run pytest
 
 **Para correr el agente**: Interactuar con el notebook ubicado en `src/main.ipynb`
 
-El notebook importa dos archivos:
+Aparte de las librerías, El notebook importa dos archivos `.py`:
 
 - `agent.py`: Archivo con la la clase `Agent` que instancia el agente.
 - `log_gen.py`: Archivo con la función custom de logging.
@@ -41,12 +49,12 @@ Para el desarrollo de este PI seguí lo indicado en `instrucciones.md` que es un
 
 El reporte solicitado se encuentra en `reports/PI_report_en.md`.
 
-Decidí utilizar un notebook para poder desarrollar más rápido y de manera iterativa.
+Decidí utilizar un notebook antes que un `run_query` o `endpoint.py` para poder desarrollar más rápido y de manera iterativa.
 
-El testeo con pytest es bastante sencillo, hace un conteo de tokens tomando en cuenta el `system_prompt`
+Los tests con pytest es bastante sencillo, se verifican las configuraciones por defecto y se hace un conteo de tokens tomando en cuenta el `system_prompt`.
 
 El agente implementado utiliza el contenido del archivo `main_prompt.md` como `system_prompt`. Los otros archivos con sufijos `v<numero>` son las distintas versiones del mismo prompt utilizadas para el reporte. Para mayor legibilidad decidí que el archivo del system prompt esté en formato markdown antes texto plano.
 
-Los logs se generan en texto plano en la carpeta `logs/` como un archivo con nombre de la forma `logs-{fecha-hoy}.txt`, loggean la información solicitada ademas de la que consideré relevante.
+Los logs se generan en texto plano en la carpeta `logs/` como un archivo con nombre de la forma `logs-{fecha-hoy}.txt`, loggean la información solicitada ademas de la que consideré relevante. Incluiré en repositorio los logs generados por las ejecuciones hechas para el reporte.
 
 Las metricas se generan dentro de `metrics/` como archivos `.csv`
